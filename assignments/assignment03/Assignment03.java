@@ -1,3 +1,5 @@
+package assignments.assignment03;
+
 class Calculator {
     static int calculationCount = 0;
 

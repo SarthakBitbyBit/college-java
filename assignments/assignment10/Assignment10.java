@@ -1,3 +1,5 @@
+package assignments.assignment10;
+
 abstract class Payment {
     abstract void pay(double amount);
 

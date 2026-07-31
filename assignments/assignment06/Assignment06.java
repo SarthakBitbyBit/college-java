@@ -1,3 +1,5 @@
+package assignments.assignment06;
+
 interface DeliveryAction {
     void update(String message);
 }

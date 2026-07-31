@@ -1,3 +1,5 @@
+package assignments.assignment01;
+
 public class Assignment01 {
     static int square(int number) {
         return number * number;

@@ -1,3 +1,5 @@
+package assignments.assignment08;
+
 class Employee {
     String name = "Neha";
     double salary = 30000;

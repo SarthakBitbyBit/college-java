@@ -1,3 +1,5 @@
+package assignments.assignment11;
+
 interface Printable {
     void printDetails();
 }

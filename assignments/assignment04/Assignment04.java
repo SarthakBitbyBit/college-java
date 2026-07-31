@@ -1,3 +1,5 @@
+package assignments.assignment04;
+
 public class Assignment04 {
     public static void main(String[] args) {
         String firstMark = "78";

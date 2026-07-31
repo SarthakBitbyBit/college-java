@@ -1,3 +1,5 @@
+package assignments.assignment09;
+
 final class LibraryRules {
     static final int MAX_BOOKS = 5;
 
