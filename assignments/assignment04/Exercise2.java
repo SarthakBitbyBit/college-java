@@ -4,19 +4,43 @@ import java.util.Scanner;
 
 public class Exercise2 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Employee ID: ");
-        Integer employeeId = Integer.valueOf(scanner.nextLine());
-        System.out.print("Basic salary: ");
-        Double basicSalary = Double.valueOf(scanner.nextLine());
-        System.out.print("Bonus: ");
-        Double bonus = Double.valueOf(scanner.nextLine());
+        try (Scanner scanner = new Scanner(System.in)) {
+            Integer employeeId = readPositiveInteger(scanner, "Employee ID: ");
+            Double basicSalary = readNonNegativeAmount(scanner, "Basic salary: ");
+            Double bonus = readNonNegativeAmount(scanner, "Bonus: ");
 
-        if (employeeId > 0 && basicSalary >= 0 && bonus >= 0) {
             System.out.println("Employee ID: " + employeeId);
-            System.out.println("Net salary: " + (basicSalary + bonus));
-        } else {
-            System.out.println("Employee ID must be positive and salary values cannot be negative.");
+            System.out.printf("Net salary: %.2f%n", basicSalary + bonus);
+        }
+    }
+
+    private static Integer readPositiveInteger(Scanner scanner, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                Integer value = Integer.valueOf(scanner.nextLine().trim());
+                if (value > 0) {
+                    return value;
+                }
+            } catch (NumberFormatException ignored) {
+                // Ask again when the input is not an integer.
+            }
+            System.out.println("Enter a valid positive employee ID.");
+        }
+    }
+
+    private static Double readNonNegativeAmount(Scanner scanner, String prompt) {
+        while (true) {
+            System.out.print(prompt);
+            try {
+                Double value = Double.valueOf(scanner.nextLine().trim());
+                if (value >= 0 && !value.isInfinite() && !value.isNaN()) {
+                    return value;
+                }
+            } catch (NumberFormatException ignored) {
+                // Ask again when the input is not a number.
+            }
+            System.out.println("Enter a valid non-negative amount.");
         }
     }
 }
