@@ -9,18 +9,14 @@ abstract class Payment {
 }
 
 class CreditCardPayment extends Payment {
-    void pay(double amount) {
-        System.out.println("Paid by credit card: " + amount);
-    }
+    void pay(double amount) { System.out.println("Paid by credit card: Rs. " + amount); }
 }
 
 class UpiPayment extends Payment {
-    void pay(double amount) {
-        System.out.println("Paid by UPI: " + amount);
-    }
+    void pay(double amount) { System.out.println("Paid by UPI: Rs. " + amount); }
 }
 
-public class Assignment10 {
+public class Exercise1 {
     public static void main(String[] args) {
         Payment card = new CreditCardPayment();
         Payment upi = new UpiPayment();

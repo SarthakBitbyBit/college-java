@@ -1,8 +1,8 @@
 package assignments.assignment08;
 
 class Employee {
-    String name = "Neha";
-    double salary = 30000;
+    protected String name;
+    protected double salary;
 
     Employee(String name, double salary) {
         this.name = name;
@@ -15,7 +15,7 @@ class Employee {
 }
 
 class Manager extends Employee {
-    double allowance;
+    private final double allowance;
 
     Manager(String name, double salary, double allowance) {
         super(name, salary);
@@ -24,13 +24,12 @@ class Manager extends Employee {
 
     void display() {
         super.display();
-        System.out.println("Total salary: " + (super.salary + allowance));
+        System.out.println("Manager total salary: " + (super.salary + allowance));
     }
 }
 
-public class Assignment08 {
+public class Exercise1 {
     public static void main(String[] args) {
-        Manager manager = new Manager("Neha", 30000, 5000);
-        manager.display();
+        new Manager("Neha", 30000, 5000).display();
     }
 }

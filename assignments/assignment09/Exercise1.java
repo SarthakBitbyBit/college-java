@@ -1,10 +1,10 @@
 package assignments.assignment09;
 
-final class LibraryRules {
-    static final int MAX_BOOKS = 5;
+final class AccountRules {
+    static final String BANK_NAME = "National Bank";
 
     final void displayRule() {
-        System.out.println("A student can issue up to " + MAX_BOOKS + " books.");
+        System.out.println("Account number cannot be changed after creation.");
     }
 }
 
@@ -17,15 +17,18 @@ class BankAccount {
         this.balance = balance;
     }
 
+    void deposit(double amount) { balance += amount; }
+
     void display() {
         System.out.println("Account: " + accountNumber + ", Balance: " + balance);
     }
 }
 
-public class Assignment09 {
+public class Exercise1 {
     public static void main(String[] args) {
         BankAccount account = new BankAccount(1001, 15000);
+        account.deposit(2000);
         account.display();
-        new LibraryRules().displayRule();
+        new AccountRules().displayRule();
     }
 }
