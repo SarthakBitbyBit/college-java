@@ -1,0 +1,5 @@
+{
+    "CodeGPT.apiKey": "OpenAI",
+    "java.project.sourcePaths": ["."],
+    "java.project.outputPath": "out"
+}
