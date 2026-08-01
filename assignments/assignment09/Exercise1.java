@@ -1,8 +1,6 @@
 package assignments.assignment09;
 
 final class AccountRules {
-    static final String BANK_NAME = "National Bank";
-
     final void displayRule() {
         System.out.println("Account number cannot be changed after creation.");
     }
@@ -17,7 +15,9 @@ class BankAccount {
         this.balance = balance;
     }
 
-    void deposit(double amount) { balance += amount; }
+    void deposit(double amount) {
+        balance += amount;
+    }
 
     void display() {
         System.out.println("Account: " + accountNumber + ", Balance: " + balance);

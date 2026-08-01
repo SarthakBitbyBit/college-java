@@ -15,15 +15,23 @@ abstract class FoodOrder {
 }
 
 class DineInOrder extends FoodOrder {
-    DineInOrder(double foodPrice) { super(foodPrice); }
+    DineInOrder(double foodPrice) {
+        super(foodPrice);
+    }
 
-    double calculateBill() { return foodPrice + foodPrice * 0.05; }
+    double calculateBill() {
+        return foodPrice + foodPrice * 0.05;
+    }
 }
 
 class TakeAwayOrder extends FoodOrder {
-    TakeAwayOrder(double foodPrice) { super(foodPrice); }
+    TakeAwayOrder(double foodPrice) {
+        super(foodPrice);
+    }
 
-    double calculateBill() { return foodPrice + 20; }
+    double calculateBill() {
+        return foodPrice + 20;
+    }
 }
 
 public class Exercise2 {

@@ -9,11 +9,15 @@ abstract class Payment {
 }
 
 class CreditCardPayment extends Payment {
-    void pay(double amount) { System.out.println("Paid by credit card: Rs. " + amount); }
+    void pay(double amount) {
+        System.out.println("Paid by credit card: Rs. " + amount);
+    }
 }
 
 class UpiPayment extends Payment {
-    void pay(double amount) { System.out.println("Paid by UPI: Rs. " + amount); }
+    void pay(double amount) {
+        System.out.println("Paid by UPI: Rs. " + amount);
+    }
 }
 
 public class Exercise1 {
