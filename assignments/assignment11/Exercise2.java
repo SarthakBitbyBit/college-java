@@ -1,26 +1,28 @@
 package assignments.assignment11;
 
-interface Switchable {
-    void turnOn();
+interface Printable {
+    void printDetails();
 }
 
-class Light implements Switchable {
-    public void turnOn() {
-        System.out.println("Light is on.");
+class Student implements Printable {
+    @Override
+    public void printDetails() {
+        System.out.println("Student: Anaya, Roll number: 21");
     }
 }
 
-class Fan implements Switchable {
-    public void turnOn() {
-        System.out.println("Fan is on.");
+class Employee implements Printable {
+    @Override
+    public void printDetails() {
+        System.out.println("Employee: Rahul, ID: 101");
     }
 }
 
 public class Exercise2 {
     public static void main(String[] args) {
-        Switchable[] devices = { new Light(), new Fan() };
-        for (Switchable device : devices) {
-            device.turnOn();
+        Printable[] records = {new Student(), new Employee()};
+        for (Printable record : records) {
+            record.printDetails();
         }
     }
 }

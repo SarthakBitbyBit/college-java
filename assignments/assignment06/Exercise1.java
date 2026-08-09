@@ -1,32 +1,31 @@
 package assignments.assignment06;
 
-interface VehicleAction {
-    void perform(String message);
-}
+class Outer {
+    private final String message = "Welcome to Java Programming";
 
-class Vehicle {
-    private final String number = "KA-01-1234";
-
-    class Details {
+    class Inner {
         void display() {
-            System.out.println("Vehicle number: " + number);
+            System.out.println("Message: " + message);
         }
     }
+}
 
-    void start() {
-        VehicleAction action = new VehicleAction() {
-            public void perform(String message) {
-                System.out.println("Vehicle action: " + message);
-            }
-        };
-        action.perform("Vehicle started");
-    }
+interface Greeting {
+    void sayHello();
 }
 
 public class Exercise1 {
     public static void main(String[] args) {
-        Vehicle vehicle = new Vehicle();
-        vehicle.new Details().display();
-        vehicle.start();
+        Outer outer = new Outer();
+        Outer.Inner inner = outer.new Inner();
+        inner.display();
+
+        Greeting greeting = new Greeting() {
+            @Override
+            public void sayHello() {
+                System.out.println("Hello from Anonymous Class");
+            }
+        };
+        greeting.sayHello();
     }
 }

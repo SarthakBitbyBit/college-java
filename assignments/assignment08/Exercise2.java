@@ -1,35 +1,33 @@
 package assignments.assignment08;
 
-class InsuredVehicle {
-    protected String registrationNumber;
-    protected String model;
+class Person {
+    protected final String name;
 
-    InsuredVehicle(String registrationNumber, String model) {
-        this.registrationNumber = registrationNumber;
-        this.model = model;
+    Person(String name) {
+        this.name = name;
     }
 
-    void displayVehicle() {
-        System.out.println("Vehicle: " + registrationNumber + ", Model: " + model);
+    void introduce() {
+        System.out.println("Person: " + name);
     }
 }
 
-class ComprehensiveInsurance extends InsuredVehicle {
-    private final double premium;
+class Student extends Person {
+    private final int rollNumber;
 
-    ComprehensiveInsurance(String registrationNumber, String model, double premium) {
-        super(registrationNumber, model);
-        this.premium = premium;
+    Student(String name, int rollNumber) {
+        super(name);
+        this.rollNumber = rollNumber;
     }
 
-    void displayPolicy() {
-        super.displayVehicle();
-        System.out.println("Comprehensive premium: Rs. " + premium);
+    void display() {
+        super.introduce();
+        System.out.println("Roll number: " + rollNumber);
     }
 }
 
 public class Exercise2 {
     public static void main(String[] args) {
-        new ComprehensiveInsurance("MH-12-AB-1234", "Honda City", 18000).displayPolicy();
+        new Student("Anaya", 21).display();
     }
 }

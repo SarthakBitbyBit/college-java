@@ -1,39 +1,37 @@
 package assignments.assignment06;
 
-interface DeliveryStatus {
-    void update(String status);
+interface Notification {
+    void send(String recipient);
 }
 
-class FoodOrder {
-    private final int orderNumber;
-    private final String item;
+class UserAccount {
+    private final String username;
 
-    FoodOrder(int orderNumber, String item) {
-        this.orderNumber = orderNumber;
-        this.item = item;
+    UserAccount(String username) {
+        this.username = username;
     }
 
-    class OrderDetails {
+    class Profile {
         void display() {
-            System.out.println("Order " + orderNumber + ": " + item);
+            System.out.println("Username: " + username);
         }
     }
 
-    void trackDelivery() {
-        DeliveryStatus status = new DeliveryStatus() {
-            public void update(String message) {
-                System.out.println("Delivery status: " + message);
+    void notifyUser() {
+        Notification notification = new Notification() {
+            @Override
+            public void send(String recipient) {
+                System.out.println("Notification sent to " + recipient);
             }
         };
-        status.update("Order picked up");
-        status.update("Order delivered");
+        notification.send(username);
     }
 }
 
 public class Exercise2 {
     public static void main(String[] args) {
-        FoodOrder order = new FoodOrder(101, "Vegetable Biryani");
-        order.new OrderDetails().display();
-        order.trackDelivery();
+        UserAccount account = new UserAccount("student@example.com");
+        account.new Profile().display();
+        account.notifyUser();
     }
 }

@@ -1,60 +1,31 @@
 package assignments.assignment07;
 
-interface Product {
-    void displayDetails();
+interface PaymentMethod {
+    void pay(double amount);
 }
 
-class ElectronicProduct implements Product {
-    private final String name;
-    private final double price;
-
-    ElectronicProduct(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    public void displayDetails() {
-        System.out.println("Electronic: " + name + ", Rs. " + price);
+class CashPayment implements PaymentMethod {
+    @Override
+    public void pay(double amount) {
+        System.out.println("Cash payment: Rs. " + amount);
     }
 }
 
-class ClothingProduct implements Product {
-    private final String name;
-    private final double price;
-
-    ClothingProduct(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    public void displayDetails() {
-        System.out.println("Clothing: " + name + ", Rs. " + price);
-    }
-}
-
-class GroceryProduct implements Product {
-    private final String name;
-    private final double price;
-
-    GroceryProduct(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    public void displayDetails() {
-        System.out.println("Grocery: " + name + ", Rs. " + price);
+class OnlinePayment implements PaymentMethod {
+    @Override
+    public void pay(double amount) {
+        System.out.println("Online payment: Rs. " + amount);
     }
 }
 
 public class Exercise2 {
     public static void main(String[] args) {
-        Product[] products = {
-            new ElectronicProduct("Headphones", 1999),
-            new ClothingProduct("Denim Jacket", 2499),
-            new GroceryProduct("Rice", 850)
+        PaymentMethod[] paymentMethods = {
+            new CashPayment(),
+            new OnlinePayment()
         };
-        for (Product product : products) {
-            product.displayDetails();
+        for (PaymentMethod paymentMethod : paymentMethods) {
+            paymentMethod.pay(500);
         }
     }
 }

@@ -1,35 +1,35 @@
 package assignments.assignment08;
 
-class Employee {
-    protected String name;
-    protected double salary;
+class Animal {
+    String name;
 
-    Employee(String name, double salary) {
+    Animal(String name) {
         this.name = name;
-        this.salary = salary;
     }
 
-    void display() {
-        System.out.println("Employee: " + name + ", Salary: " + salary);
+    void sound() {
+        System.out.println("Animal makes sound");
     }
 }
 
-class Manager extends Employee {
-    private final double allowance;
+class Dog extends Animal {
+    String name;
 
-    Manager(String name, double salary, double allowance) {
-        super(name, salary);
-        this.allowance = allowance;
+    Dog(String name) {
+        super("Bird");
+        this.name = name;
     }
 
     void display() {
-        super.display();
-        System.out.println("Manager total salary: " + (super.salary + allowance));
+        System.out.println("Parent Name: " + super.name);
+        System.out.println("Child Name: " + name);
+        super.sound();
     }
 }
 
 public class Exercise1 {
     public static void main(String[] args) {
-        new Manager("Neha", 30000, 5000).display();
+        Dog dog = new Dog("Dog");
+        dog.display();
     }
 }

@@ -1,24 +1,26 @@
 package assignments.assignment11;
 
-interface Printable {
-    void printDetails();
+interface Animal {
+    void eat();
+    void sleep();
 }
 
-class Student implements Printable {
-    public void printDetails() {
-        System.out.println("Student: Anaya, Roll number: 21");
+class Dog implements Animal {
+    @Override
+    public void eat() {
+        System.out.println("Dog is eating");
     }
-}
 
-class Employee implements Printable {
-    public void printDetails() {
-        System.out.println("Employee: Rahul, ID: 101");
+    @Override
+    public void sleep() {
+        System.out.println("Dog is sleeping");
     }
 }
 
 public class Exercise1 {
     public static void main(String[] args) {
-        Printable[] records = { new Student(), new Employee() };
-        for (Printable record : records) record.printDetails();
+        Dog dog = new Dog();
+        dog.eat();
+        dog.sleep();
     }
 }

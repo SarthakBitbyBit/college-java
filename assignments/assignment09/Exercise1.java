@@ -1,34 +1,17 @@
 package assignments.assignment09;
 
-final class AccountRules {
-    final void displayRule() {
-        System.out.println("Account number cannot be changed after creation.");
-    }
-}
+final class College {
+    private final int collegeId = 101;
 
-class BankAccount {
-    private final int accountNumber;
-    private double balance;
-
-    BankAccount(int accountNumber, double balance) {
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-    }
-
-    void deposit(double amount) {
-        balance += amount;
-    }
-
-    void display() {
-        System.out.println("Account: " + accountNumber + ", Balance: " + balance);
+    final void display() {
+        System.out.println("College ID: " + collegeId);
     }
 }
 
 public class Exercise1 {
     public static void main(String[] args) {
-        BankAccount account = new BankAccount(1001, 15000);
-        account.deposit(2000);
-        account.display();
-        new AccountRules().displayRule();
+        College college = new College();
+        college.display();
+        System.out.println("The final variable, method, and class cannot be changed.");
     }
 }
