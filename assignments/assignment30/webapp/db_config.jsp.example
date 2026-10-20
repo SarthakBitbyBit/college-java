@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%!
+    // Example Database Configuration Template
+    // Rename or copy to db_config.jsp and update connection parameters as needed.
+
+    public static final String JDBC_URL = "jdbc:mysql://localhost:3306/jsp_lab?useSSL=false&allowPublicKeyRetrieval=true";
+    public static final String JDBC_USER = "javauser";
+    public static final String JDBC_PASS = "YourDatabasePasswordHere";
+
+    public static java.sql.Connection getConnection() throws java.sql.SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return java.sql.DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASS);
+    }
+
+    public static String escape(String s) {
+        if (s == null) return "";
+        return s.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;")
+                .replace("'", "&#x27;");
+    }
+%>
